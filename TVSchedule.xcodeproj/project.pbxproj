@@ -22,6 +22,7 @@
 		1AA9A7C22099E1DA00A13E5A /* WebChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9A7C12099E1DA00A13E5A /* WebChannel.swift */; };
 		1ACC9B36209A15D000FBA1AB /* Schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC9B35209A15D000FBA1AB /* Schedule.json */; };
 		1ACC9B39209A163B00FBA1AB /* ShowTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9B38209A163B00FBA1AB /* ShowTest.swift */; };
+		1ACC9B3E209A3E8B00FBA1AB /* TVMazeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9B3D209A3E8B00FBA1AB /* TVMazeClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		1AA9A7C12099E1DA00A13E5A /* WebChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebChannel.swift; sourceTree = "<group>"; };
 		1ACC9B35209A15D000FBA1AB /* Schedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Schedule.json; sourceTree = "<group>"; };
 		1ACC9B38209A163B00FBA1AB /* ShowTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTest.swift; sourceTree = "<group>"; };
+		1ACC9B3D209A3E8B00FBA1AB /* TVMazeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +97,7 @@
 		1AA9A78F2099D3FE00A13E5A /* TVSchedule */ = {
 			isa = PBXGroup;
 			children = (
-				1AA9A7B02099D4A300A13E5A /* Model */,
+				1ACC9B3C209A3DDC00FBA1AB /* API */,
 				1AA9A7902099D3FE00A13E5A /* AppDelegate.swift */,
 				1AA9A7922099D3FE00A13E5A /* ViewController.swift */,
 				1AA9A7942099D3FE00A13E5A /* Main.storyboard */,
@@ -145,6 +147,15 @@
 				1ACC9B38209A163B00FBA1AB /* ShowTest.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1ACC9B3C209A3DDC00FBA1AB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1ACC9B3D209A3E8B00FBA1AB /* TVMazeClient.swift */,
+				1AA9A7B02099D4A300A13E5A /* Model */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +267,7 @@
 				1AA9A7C22099E1DA00A13E5A /* WebChannel.swift in Sources */,
 				1AA9A7B42099D72400A13E5A /* Schedule.swift in Sources */,
 				1AA9A7BC2099DD0300A13E5A /* Country.swift in Sources */,
+				1ACC9B3E209A3E8B00FBA1AB /* TVMazeClient.swift in Sources */,
 				1AA9A7B82099DA1500A13E5A /* Externals.swift in Sources */,
 				1AA9A7BA2099DC5700A13E5A /* Network.swift in Sources */,
 				1AA9A7912099D3FE00A13E5A /* AppDelegate.swift in Sources */,
