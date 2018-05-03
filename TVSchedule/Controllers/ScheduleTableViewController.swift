@@ -27,6 +27,8 @@ class ScheduleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+        
         timeStamp = Date()
     }
     
@@ -37,13 +39,28 @@ class ScheduleTableViewController: UITableViewController {
         client.fetchListings(for: timestamp) { result in
             switch result {
             case .failure(let error):
-                print(error.localizedDescription)
-                //TODO: error window
+                self.showError(error.localizedDescription)
             case .success(let listings):
                 self.listings = listings
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        if let timeStamp = timeStamp {
+            getListings(for: timeStamp)
+        }
+        
+        refreshControl.endRefreshing()
+    }
+    
+    private func showError(_ description: String) {
+        let alertController = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
