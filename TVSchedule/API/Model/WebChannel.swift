@@ -15,5 +15,5 @@ import Foundation
 struct WebChannel: Decodable {
     var id: Int
     var name: String
-    var country: Country
+    var country: Country?
 }

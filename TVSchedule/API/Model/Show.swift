@@ -19,13 +19,13 @@ struct Show: Decodable {
     var language: String
     var genres: [String]
     var status: String
-    var runtime: Int
-    var premiered: String
+    var runtime: Int?
+    var premiered: String?
     var officialSite: URL?
     var schedule: Schedule
     var rating: Rating
     var weight: Int
-    var network: Network
+    var network: Network?
     var webChannel: WebChannel?
     var externals: Externals
     var image: Image?

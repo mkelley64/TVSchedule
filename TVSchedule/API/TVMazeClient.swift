@@ -19,20 +19,27 @@ enum ApiError : Error {
     case responseFormatInvalid(String)
 }
 
+typealias ApiCompletionBlock<T : Decodable> = (ApiResult<T>) -> Void
+
 class TVMazeClient {
     let session: URLSession
     
     init(session: URLSession) {
         self.session = session
     }
-    //2014-05-02
-    func fetchShowList(for date: String, completion: @escaping (ApiResult<[Show]>) -> Void) {
-        let url = URL(string: "http://api.tvmaze.com/schedule?country=US&date=\(date)")!
+    
+    func fetchListings(for date: Date,
+                       country: String = "US",
+                       completion: @escaping ApiCompletionBlock<[Listing]>) {
+        let dateString = date.tvMazeDateString()
+        let url = Router.Schedule(country, dateString).url()
         let req = URLRequest(url: url)
         
         let task = session.dataTask(with: req) { (data, response, error) in
             if let err = error {
-                completion(.failure(.connectionError(err)))
+                DispatchQueue.main.async {
+                    completion(.failure(.connectionError(err)))
+                }
             } else {
                 let httpResponse = response as! HTTPURLResponse
                 
@@ -41,17 +48,62 @@ class TVMazeClient {
                     let decoder = JSONDecoder()
                     
                     do {
-                        let shows = try decoder.decode([Show].self, from: data!)
-                        completion(.success(shows))
+                        let listings = try decoder.decode([Listing].self, from: data!)
+                         DispatchQueue.main.async {
+                            completion(.success(listings))
+                        }
                     } catch let e {
-                        completion(.failure(.responseFormatInvalid(e.localizedDescription)))
+                        DispatchQueue.main.async {
+                            completion(.failure(.responseFormatInvalid(e.localizedDescription)))
+                        }
                     }
                 default:
-                    completion(.failure(.serverError(httpResponse.statusCode)))
+                    DispatchQueue.main.async {
+                        completion(.failure(.serverError(httpResponse.statusCode)))
+                    }
                 }
             }
         }
         
         task.resume()
+    }
+    
+    func fetchQueryResults(for query: String,
+                           completion: @escaping ApiCompletionBlock<[SearchResult]>) {
+        let url = Router.Search(query).url()
+        let req = URLRequest(url: url)
+        
+        let task = session.dataTask(with: req) { (data, response, error) in
+            if let err = error {
+                DispatchQueue.main.async {
+                    completion(.failure(.connectionError(err)))
+                }
+            } else {
+                let httpResponse = response as! HTTPURLResponse
+                
+                switch httpResponse.statusCode {
+                case 200:
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let results = try decoder.decode([SearchResult].self, from: data!)
+                        DispatchQueue.main.async {
+                            completion(.success(results))
+                        }
+                    } catch let e {
+                        DispatchQueue.main.async {
+                            completion(.failure(.responseFormatInvalid(e.localizedDescription)))
+                        }
+                    }
+                default:
+                    DispatchQueue.main.async {
+                        completion(.failure(.serverError(httpResponse.statusCode)))
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+        
     }
 }

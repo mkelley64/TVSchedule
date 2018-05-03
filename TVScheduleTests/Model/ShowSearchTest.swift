@@ -1,15 +1,15 @@
 //
-//  ShowTest.swift
+//  ShowSearchTest.swift
 //  TVScheduleTests
 //
-//  Created by Mark Kelley on 5/2/18.
+//  Created by Mark Kelley on 5/3/18.
 //  Copyright © 2018 Kelley. All rights reserved.
 //
 
 import XCTest
 @testable import TVSchedule
 
-class ShowTest: XCTestCase {
+class ShowSearchTest: XCTestCase {
     
     var json: Data!
     
@@ -20,8 +20,8 @@ class ShowTest: XCTestCase {
         
         let bundle = Bundle(for: type(of: self))
         
-        guard let url = bundle.url(forResource: "Schedule", withExtension: "json") else {
-            XCTFail("Missing file: Schedule.json")
+        guard let url = bundle.url(forResource: "ShowSearch", withExtension: "json") else {
+            XCTFail("Missing file: ShowSearch.json")
             return
         }
         
@@ -30,15 +30,17 @@ class ShowTest: XCTestCase {
         } catch {}
     }
     
-    
-    func testScheduleDecode() {
+    func testShowSearchResultsDecode() {
         let decoder = JSONDecoder()
         
         do {
-            let schedule = try decoder.decode([Show].self, from: json)
+            let schedule = try decoder.decode([SearchResult].self, from: json)
+            print(schedule.count)
+            
             XCTAssertNotNil(schedule)
         } catch (let error) {
             print(error)
+            XCTFail("Parse failed")
         }
     }
 }
