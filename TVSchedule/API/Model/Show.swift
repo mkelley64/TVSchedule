@@ -13,7 +13,7 @@ import Foundation
 
 struct Show: Decodable {
     var id: Int
-    var url: URL
+    var url: String
     var name: String
     var type: String?
     var language: String
@@ -21,7 +21,7 @@ struct Show: Decodable {
     var status: String
     var runtime: Int?
     var premiered: String?
-    var officialSite: URL?
+    var officialSite: String?
     var schedule: Schedule
     var rating: Rating
     var weight: Int
@@ -32,4 +32,16 @@ struct Show: Decodable {
     var summary: String?  //TODO:  create a display string
     //_links
     //previousepisode
+    
+    var showURL: URL? {
+        return URL(string: url)
+    }
+    
+    var officialSiteURL: URL? {
+        if let officialSite = officialSite {
+            return URL(string: officialSite)
+        }
+        
+        return nil
+    }
 }

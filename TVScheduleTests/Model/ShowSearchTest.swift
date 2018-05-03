@@ -34,9 +34,7 @@ class ShowSearchTest: XCTestCase {
         let decoder = JSONDecoder()
         
         do {
-            let schedule = try decoder.decode([SearchResult].self, from: json)
-            print(schedule.count)
-            
+            let schedule = try decoder.decode([SearchResult].self, from: json)            
             XCTAssertNotNil(schedule)
         } catch (let error) {
             print(error)

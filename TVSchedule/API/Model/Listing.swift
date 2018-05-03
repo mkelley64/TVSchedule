@@ -12,7 +12,7 @@ import Foundation
 
 struct Listing: Decodable {
     var id: Int
-    var url: URL
+    var url: String
     var name: String
     var season: Int
     var number: Int?
@@ -23,6 +23,10 @@ struct Listing: Decodable {
     var image: Image?
     var summary: String?
     var show: Show
+    
+    var listingURL: URL? {
+        return URL(string: url)
+    }
 }
 
 

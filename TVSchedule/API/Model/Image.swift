@@ -13,6 +13,14 @@ import Foundation
  */
 
 struct Image: Decodable {
-    var medium: URL
-    var original: URL
+    var medium: String
+    var original: String
+    
+    var mediumURL: URL? {
+        return URL(string: medium)
+    }
+    
+    var originalURL: URL? {
+        return URL(string: original)
+    }
 }
