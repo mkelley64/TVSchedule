@@ -18,7 +18,7 @@ class ScheduleTableViewController: UITableViewController {
     var timeStamp: Date? {
         didSet {
             if let ts = timeStamp {
-                title = ts.titleDateString()
+                navigationItem.title = ts.titleDateString()
                 getListings(for: ts)
             }
         }
@@ -28,7 +28,6 @@ class ScheduleTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
-        
         timeStamp = Date()
     }
     

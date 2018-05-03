@@ -25,6 +25,8 @@
 		1AA9A7BE2099DE7300A13E5A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9A7BD2099DE7200A13E5A /* Image.swift */; };
 		1AA9A7C22099E1DA00A13E5A /* WebChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA9A7C12099E1DA00A13E5A /* WebChannel.swift */; };
 		1ABC81D9209BA14500A706B6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABC81D8209BA14500A706B6 /* DatePickerViewController.swift */; };
+		1ABC81DB209BAE5900A706B6 /* ShowQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABC81DA209BAE5900A706B6 /* ShowQueryViewController.swift */; };
+		1ABC81DD209BB89300A706B6 /* ShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABC81DC209BB89300A706B6 /* ShowDetailsViewController.swift */; };
 		1ACC9B36209A15D000FBA1AB /* Schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC9B35209A15D000FBA1AB /* Schedule.json */; };
 		1ACC9B39209A163B00FBA1AB /* ScheduleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9B38209A163B00FBA1AB /* ScheduleTest.swift */; };
 		1ACC9B3E209A3E8B00FBA1AB /* TVMazeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACC9B3D209A3E8B00FBA1AB /* TVMazeClient.swift */; };
@@ -66,6 +68,8 @@
 		1AA9A7BD2099DE7200A13E5A /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		1AA9A7C12099E1DA00A13E5A /* WebChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebChannel.swift; sourceTree = "<group>"; };
 		1ABC81D8209BA14500A706B6 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		1ABC81DA209BAE5900A706B6 /* ShowQueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowQueryViewController.swift; sourceTree = "<group>"; };
+		1ABC81DC209BB89300A706B6 /* ShowDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsViewController.swift; sourceTree = "<group>"; };
 		1ACC9B35209A15D000FBA1AB /* Schedule.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Schedule.json; sourceTree = "<group>"; };
 		1ACC9B38209A163B00FBA1AB /* ScheduleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTest.swift; sourceTree = "<group>"; };
 		1ACC9B3D209A3E8B00FBA1AB /* TVMazeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeClient.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				1AE48D03209A64A200B1F219 /* ScheduleTableViewController.swift */,
 				1AA0DD42209B49E700DDF0E6 /* ListingDetailsViewController.swift */,
 				1ABC81D8209BA14500A706B6 /* DatePickerViewController.swift */,
+				1ABC81DA209BAE5900A706B6 /* ShowQueryViewController.swift */,
+				1ABC81DC209BB89300A706B6 /* ShowDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -303,7 +309,9 @@
 			files = (
 				1AA9A7B22099D50E00A13E5A /* Show.swift in Sources */,
 				1AA9A7BE2099DE7300A13E5A /* Image.swift in Sources */,
+				1ABC81DB209BAE5900A706B6 /* ShowQueryViewController.swift in Sources */,
 				1AA9A7B62099D82800A13E5A /* Rating.swift in Sources */,
+				1ABC81DD209BB89300A706B6 /* ShowDetailsViewController.swift in Sources */,
 				1AE48D04209A64A200B1F219 /* ScheduleTableViewController.swift in Sources */,
 				1ACC9B40209A4F0E00FBA1AB /* Router.swift in Sources */,
 				1AA9A7C22099E1DA00A13E5A /* WebChannel.swift in Sources */,
